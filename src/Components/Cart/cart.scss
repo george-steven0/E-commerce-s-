@@ -1,0 +1,9 @@
+.cartProductWrapper::-webkit-scrollbar{
+    width: 7px;
+    background-color: rgba(173, 174, 174, 0.212);
+    border-radius: 10px;
+}
+.cartProductWrapper::-webkit-scrollbar-thumb{
+    background-color: rgba(63, 63, 63, 0.684);
+    border-radius: 10px;
+}

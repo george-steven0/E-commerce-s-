@@ -1,0 +1,103 @@
+$primaryColor : #E97425;
+.navlist{
+
+    svg{
+        width: 20px;
+        height: 20px;
+        // color: $primaryColor;
+        margin-right: 10px;
+    }
+}
+.respUl{
+    border-top-right-radius: 0px !important;
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: -18.9px;
+        right: -.3px;
+        width: 0; 
+        height: 0; 
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid rgba(0,0,0,.7);
+        z-index: -1;
+    }
+    li{
+        transition: all .3s ease-in-out;
+        display: block;
+        flex: 0 0 100%;
+        margin-left: 0 !important;
+        padding: 5px 10px;
+        &:hover{
+            background-color: $primaryColor;
+        }
+    }
+
+    li:first-child{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    li:last-child{
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+}
+
+.c-category{
+    position: relative;
+    transition: all .5s ease-in-out;
+    .category-wrapper{
+        position: absolute;
+        background-color: white;
+        top: 25px;
+        z-index: 5599966;
+        width: 325px;
+        min-height: 300px;
+        max-height: 301px;
+        overflow-y: scroll;
+        border-radius: 5px;
+        padding: 10px 5px;
+        display: none;
+        &::after{
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform:translateX(-50%);
+            z-index: 999999999;
+            width: 0; 
+            height: 0; 
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid white;
+        }
+    }
+
+    .category-wrapper::-webkit-scrollbar{
+        background-color: rgba(0,0,0,.2);
+        border-radius: 5px;
+        width: 8px;
+    }
+
+    .category-wrapper::-webkit-scrollbar-thumb{
+        background-color: rgba(0,0,0,.7);
+        border-radius: 5px;
+
+    }
+
+    &:hover .category-wrapper{
+        display: block;
+        opacity: 1;
+    }
+}
+
+// @media (min-width:599px) and (max-width:1024px){
+//     .c-category{
+
+//         .category-wrapper{
+//             left: -260%;
+//         }
+//     }
+// }
