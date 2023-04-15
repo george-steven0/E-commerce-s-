@@ -5,41 +5,41 @@ import '../../Assets/Styles/store.scss'
 import { Skeleton, Slider } from "@mui/material";
 import BestSellers from "./bestSellers";
 import { useDispatch, useSelector } from "react-redux";
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 import { getAllProducts } from "../Redux/Slices/Shop/products";
 
-const useStyles = makeStyles({
-    root: {
-      color: '#ff7135 !important', // change the color of the slider
-    //   height: 8, // change the height of the slider
-    },
-    thumb: {
-    //   height: 24, // change the height of the thumb
-    //   width: 24, // change the width of the thumb
-    //   backgroundColor: '#fff', // change the color of the thumb
-      border: '2px solid #ff7135', // add a border to the thumb
-    //   marginTop: -8, // position the thumb properly
-    //   marginLeft: -12, // position the thumb properly
-      '&:focus, &:hover, &$active': {
-        boxShadow: '0 0 0px 8px #ff72353d !important',
-      },
-    },
-    active: {},
-    valueLabel: {
-      left: 'calc(-50% + 4px)',
-    },
-    track: {
-      height: 8, // change the height of the track
-      borderRadius: 4, // change the border radius of the track
-      backgroundColor : '#3c3c3c !important',
-      border : '#000 !important'
-    },
-    rail: {
-      height: 8, // change the height of the rail
-      borderRadius: 4, // change the border radius of the rail
-      backgroundColor : "#ff7135 !important"
-    },
-})
+// const useStyles = makeStyles({
+//     root: {
+//       color: '#ff7135 !important', // change the color of the slider
+//     //   height: 8, // change the height of the slider
+//     },
+//     thumb: {
+//     //   height: 24, // change the height of the thumb
+//     //   width: 24, // change the width of the thumb
+//     //   backgroundColor: '#fff', // change the color of the thumb
+//       border: '2px solid #ff7135', // add a border to the thumb
+//     //   marginTop: -8, // position the thumb properly
+//     //   marginLeft: -12, // position the thumb properly
+//       '&:focus, &:hover, &$active': {
+//         boxShadow: '0 0 0px 8px #ff72353d !important',
+//       },
+//     },
+//     active: {},
+//     valueLabel: {
+//       left: 'calc(-50% + 4px)',
+//     },
+//     track: {
+//       height: 8, // change the height of the track
+//       borderRadius: 4, // change the border radius of the track
+//       backgroundColor : '#3c3c3c !important',
+//       border : '#000 !important'
+//     },
+//     rail: {
+//       height: 8, // change the height of the rail
+//       borderRadius: 4, // change the border radius of the rail
+//       backgroundColor : "#ff7135 !important"
+//     },
+// })
 
 const Filter = ({minPrice, maxPrice, category}) => {
 
@@ -75,7 +75,7 @@ const Filter = ({minPrice, maxPrice, category}) => {
     //   console.log(category); //return object of keys and values
     //   console.log( categoryLengths[Object.keys(categoryLengths)[0]] ); 
     
-    const classes = useStyles();
+    // const classes = useStyles();
 
     const topSales = useSelector(state=>state.products)
     const dispatch = useDispatch()
@@ -116,14 +116,14 @@ const Filter = ({minPrice, maxPrice, category}) => {
                             getAriaValueText={valuetext}
                             min={minPrice?.price ? minPrice?.price : 0}
                             max={maxPrice?.price ? maxPrice?.price : 0}
-                            classes={{
-                                root: classes.root,
-                                thumb: classes.thumb,
-                                active: classes.active,
-                                valueLabel: classes.valueLabel,
-                                track: classes.track,
-                                rail: classes.rail,
-                            }}
+                            // classes={{
+                            //     root: classes.root,
+                            //     thumb: classes.thumb,
+                            //     active: classes.active,
+                            //     valueLabel: classes.valueLabel,
+                            //     track: classes.track,
+                            //     rail: classes.rail,
+                            // }}
                         />
                     </div>
 
