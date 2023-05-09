@@ -37,6 +37,31 @@ export const getAllProducts = createAsyncThunk("GetAllProducts", async({textValu
     }
 })
 
+export const getTopProducts = createAsyncThunk("GetTopProducts", async(_, {rejectWithValue,dispatch})=>{
+    // ?offset=0&limit=10
+    const url =`https://api.escuelajs.co/api/v1/products?offset=0&limit=8` 
+
+    try {
+        const res = await axios.get(url)
+        return {
+            top :res.data,
+        }
+
+    } catch(error){
+        // console.log(error.response.data);
+        if (error.response && error.response.data) {
+            dispatch(errorToast(error.response.data.error))
+            return rejectWithValue(error.response.data.error)
+        } else if(navigator.onLine === false){
+            dispatch(errorToast('Check Internet Connection'))
+        }
+        
+        else {
+            return rejectWithValue(error.message)
+        }
+    }
+})
+
 export const filterProducts = createAsyncThunk('Filter-Products', async()=>{
 
 })
@@ -48,6 +73,7 @@ const initialState = {
     products: [],
     totalData : [],
     topSales : [],
+    top : [],
     error : null
 }
 export const ProductsSlice = createSlice({ 
@@ -66,6 +92,16 @@ export const ProductsSlice = createSlice({
             state.totalData = action.payload.totalData
             state.topSales = action.payload.topSales
         }).addCase(getAllProducts.rejected, (state,action)=>{
+            state.loading = false;
+            state.error = action.payload
+        }).addCase(getTopProducts.pending, (state,action)=>{
+            state.loading = false;
+            state.error = ""
+        }).addCase(getTopProducts.fulfilled, (state,action)=>{
+            state.loading = false;
+            state.error = ""
+            state.top = action.payload.top
+        }).addCase(getTopProducts.rejected, (state,action)=>{
             state.loading = false;
             state.error = action.payload
         })

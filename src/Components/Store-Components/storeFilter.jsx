@@ -94,7 +94,7 @@ const Filter = ({minPrice, maxPrice, category}) => {
         dispatch(getAllProducts({textValue}))
     }
 
-    console.log(topSales?.loading);
+    // console.log(topSales?.loading);
 
     return ( 
         <section className="store-filter-wrapper">

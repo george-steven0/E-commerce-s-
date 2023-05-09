@@ -47,7 +47,7 @@ const HeaderLogin = (props) => {
 
     return ( 
         <article className="headerLogin relative w-full h-screen">
-            <section className="absolute top-4 left-4 w-8 h-8 rounded-[50%] bg-white cursor-pointer z-10 text-center leading-8" onClick={props.toggle}><FontAwesomeIcon className="text-[#E97425]" icon ={faTimes} /></section>
+            <section className="absolute top-4 left-4 w-8 h-8 rounded-[50%] bg-white cursor-pointer z-10 text-center leading-8" onClick={props.toggle}><FontAwesomeIcon className="text-[#E97425] text-xl" icon ={faTimes} /></section>
             
             <section className="overlay absolute top-0 bottom-0 left-0 right-0 w-full h-full bg-[#000000ba]">
 

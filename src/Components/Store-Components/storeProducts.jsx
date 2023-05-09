@@ -12,8 +12,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../Redux/Slices/Shop/products";
 import loading from '../../Assets/imgs/loading.gif'
 import empty from '../../Assets/imgs/empty.gif'
+import { addToCart } from "../Redux/Slices/Cart/cartSlice";
 const StoreProducts = ({showingTotal,startRange,endRange,products}) => {
+    const dispatch = useDispatch()
     // console.log(products);
+    const addToCartHandler = (product)=>{
+        // console.log(product);
+        if(product){
+            dispatch(addToCart({product}))
+        }
+
+    }
     return ( 
         <div className="store-products-wrapper h-full">
             <div className="flex flex-wrap justify-center md:justify-between items-center store-heading mb-8">
@@ -55,6 +64,7 @@ const StoreProducts = ({showingTotal,startRange,endRange,products}) => {
                                     price={item.price}
                                     // rate={item.rating}
                                     name={item.title}
+                                    addCart = {()=>addToCartHandler(item)}
                                 />
                             </Fragment>
                         )
